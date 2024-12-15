@@ -13,6 +13,8 @@ Com esse sistema, é possível cadastrar imóveis, proprietários, inquilinos e 
 - **Cadastro de Imóveis**: Cadastro de imóveis disponíveis para aluguel, incluindo informações como endereço, tipo de imóvel (casa, apartamento, etc.), e preço de aluguel.
 - **Cadastro de Proprietários e Inquilinos**: Cadastro de dados de proprietários de imóveis e inquilinos, com informações de contato.
 - **Registro de Contratos de Aluguel**: Gerenciamento de contratos de aluguel, com datas de início e término, associando imóveis a inquilinos.
+
+## **Melhorias**
 - **Controle de Status de Aluguel**: Controle do status de aluguel (ativo, finalizado, cancelado).
 - **Relatórios**: Geração de relatórios sobre imóveis alugados, inquilinos com contratos ativos e receitas geradas pelos aluguéis.
 
