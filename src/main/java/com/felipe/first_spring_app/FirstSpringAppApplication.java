@@ -10,6 +10,5 @@ public class FirstSpringAppApplication {
 		SpringApplication.run(FirstSpringAppApplication.class, args);
 	}
 
-	// TESTE DE COMMIT
 
 }
