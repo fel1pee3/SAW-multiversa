@@ -1,7 +1,7 @@
 package com.felipe.first_spring_app.repositorio;
 
 
-import com.sistemamultiversa.ProjetoMultiversa.model.ImovelModel;
+import com.felipe.first_spring_app.model.ImovelModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
