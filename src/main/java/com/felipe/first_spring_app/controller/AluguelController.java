@@ -1,70 +1,73 @@
 package com.felipe.first_spring_app.controller;
 
-import com.sistemamultiversa.ProjetoMultiversa.model.AluguelModel;
-import com.sistemamultiversa.ProjetoMultiversa.service.AluguelService;
+
+import com.felipe.first_spring_app.model.ImovelModel;
+import com.felipe.first_spring_app.service.ImovelService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-        import java.util.List;
+import java.util.List;
+
 
 @RestController
-@RequestMapping("/aluguel")
-public class AluguelController {
+@RequestMapping("/imovel")
+public class ImovelController {
 
-    private final AluguelService aluguelService;
 
-    public AluguelController(AluguelService aluguelService) {
-        this.aluguelService = aluguelService;
+    private final ImovelService imovelService;
+
+
+    public ImovelController(ImovelService imovelService) {
+        this.imovelService = imovelService;
     }
 
 
-    // Criar um Aluguel
+    // Criar um imovel
     @PostMapping("/create")
-    public ResponseEntity<AluguelModel> salvar(@RequestBody AluguelModel aluguel) {
-        return ResponseEntity.ok(aluguelService.salvar(aluguel));
+    public ImovelModel salvar(@RequestBody ImovelModel imovel) {
+        return imovelService.salvar(imovel);
     }
 
 
-    // Listar todos os alugueis
+    // Listar todos os imoveis
     @GetMapping
-    public List<AluguelModel> listarTodos() {
-        return aluguelService.listarTodos();
+    public List<ImovelModel> listarTodos() {
+        return imovelService.listarTodos();
     }
 
-    // Buscar um aluguel por id
+
+    // Buscar um Imovel por ID
     @GetMapping("/{id}")
-    public ResponseEntity<AluguelModel> buscarPorId(@PathVariable Long id) {
-        return aluguelService.buscarPorId(id)
+    public ResponseEntity<ImovelModel> buscarPorId(@PathVariable Long id) {
+        return imovelService.buscarPorId(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
 
-
-    @PutMapping("/{id}")
-    public ResponseEntity<AluguelModel> atualizar(@PathVariable Long id, @RequestBody AluguelModel aluguel) {
-        return aluguelService.buscarPorId(id)
-                .map(aluguelExistente -> {
-                    aluguel.setId(id); // Garante que o ID do objeto a ser atualizado permaneça o mesmo
-                    AluguelModel aluguelAtualizado = aluguelService.salvar(aluguel);
-                    return ResponseEntity.ok(aluguelAtualizado);
+    @PutMapping("/imovel/{id}")
+    public ResponseEntity<ImovelModel> atualizarImovel(@PathVariable Long id, @RequestBody ImovelModel imovel) {
+        return imovelService.buscarPorId(id)
+                .map(imovelExistente -> {
+                    imovel.setId(id);
+                    ImovelModel imovelAtualizado = imovelService.salvar(imovel);
+                    return ResponseEntity.ok(imovelAtualizado);
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
 
 
-    // Atualizar os dados de um aluguel
+    // Atualizar imovel
     @PutMapping("/update/{id}")
-    public ResponseEntity<AluguelModel> update(@PathVariable Long id, @RequestBody AluguelModel aluguel) {
-        return ResponseEntity.ok(AluguelService.update(id, aluguel));
+    public ResponseEntity<ImovelModel> update(@PathVariable Long id, @RequestBody ImovelModel imovel) {
+        return ResponseEntity.ok(ImovelService.update(id, imovel));
     }
 
 
-
-    // Deletar um aluguel
+    // Deletar Imovel
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        aluguelService.deletar(id);
+        imovelService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 }
