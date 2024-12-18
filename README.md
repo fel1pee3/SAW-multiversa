@@ -22,20 +22,21 @@ Com esse sistema, é possível cadastrar imóveis, proprietários, inquilinos e 
 
 ## 💻 **Tecnologias Utilizadas**
 
-- **Backend**: Spring Boot 3.4.0
-- **Banco de Dados**: MySQL ou PostgreSQL (configurável)
-- **Frontend**: (Opcional) React, Angular ou Thymeleaf para visualização e interação com a API
-- **Segurança**: Spring Security para autenticação e autorização
-
+- **Backend**: Spring Boot 3.4.1
+- **Banco de Dados**: PostgreSQL (configurável)
+- **Java**: Versão 23
+- **JDK**: Amazon Corretto 23
+- **Spring Dta JPA**: 3.1.0
+- **Spring Boot Starter Validation**:3.1.0
 ---
 
 ## ⚙️ **Pré-requisitos**
 
-Para rodar este projeto localmente, você precisa ter:
+**Para rodar este projeto localmente, você precisa ter:**
 
-- **Java 21** instalado.
+- **Java 23** instalado.
 - **Maven** instalado para gerenciar dependências e build do projeto.
-- **MySQL** ou **PostgreSQL** configurado e rodando em sua máquina.
+- **PostgreSQL** configurado e rodando em sua máquina.
 
 ---
 
@@ -49,6 +50,12 @@ git clone https://github.com/fel1pee3/SAW-multiversa.git
 
 ### 2. Configuração do Banco de Dados
 
+- **Host**: //localhost:5432
+- **Porta**: 8080
+- **Usuário**: postgres
+- **Senha**: root
+- **database**: sisteminha
+  
 ```bash
 spring.datasource.url=jdbc:postgresql://localhost:5432/nome_do_banco
 spring.datasource.username=seu_usuario
@@ -87,12 +94,6 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
         <artifactId>spring-boot-devtools</artifactId>
         <scope>runtime</scope>
     </dependency>
-
-    <!-- Lombok - Para reduzir código boilerplate (getters, setters, etc.) -->
-    <dependency>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <scope>provided</scope>
     </dependency>
 </dependencies>
 ```
